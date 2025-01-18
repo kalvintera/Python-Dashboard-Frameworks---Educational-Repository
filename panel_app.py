@@ -12,6 +12,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapmi
 country_selector = pn.widgets.Select(name='Country', options=list(df['country'].unique()),
                                      styles={'width': 'max'})
 
+
 # Eine Plotly-Visualisierung basierend auf der Auswahl erstellen
 @pn.depends(country_selector.param.value)
 def create_plot(country):
