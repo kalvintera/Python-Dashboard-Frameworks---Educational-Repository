@@ -6,10 +6,11 @@ pn.config.theme = 'dark'
 # Daten laden
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
 
-# Ein Dropdown-Widget erstellen
+# Ein Dropdown-Widget erstellen - Beispiele Widgets: https://panel.holoviz.org/reference/index.html#widgets
+# Select : https://panel.holoviz.org/reference/widgets/Select.html
+# Select Beispiel : # select = pn.widgets.Select(name='Select', options=['Biology', 'Chemistry', 'Physics'])
 country_selector = pn.widgets.Select(name='Country', options=list(df['country'].unique()),
-                                     styles={'width': '200%'})
-
+                                     styles={'width': 'max'})
 
 # Eine Plotly-Visualisierung basierend auf der Auswahl erstellen
 @pn.depends(country_selector.param.value)
@@ -20,19 +21,25 @@ def create_plot(country):
                    template="plotly_dark")
 
 
-"""
-# ZWEITE GRAFIK
-@pn.depends(country_selector.param.value)
-def create_second_plot(country):
-    filtered_df = df[df['country'] == country]
-    return px.scatter(filtered_df, x='year', y='lifeExp', title=f'Life Expectancy in {country}')
-"""
+# Instanziierung der Vorlage mit Widgets, die in der Sidebar angezeigt werden
+template = pn.template.BootstrapTemplate(
+    title='Panel App',
+    sidebar=[country_selector],
+)
 
 # Dashboard erstellen
-dashboard = pn.Column(pn.pane.Markdown(
-        """# Title of Panel App""",
-        align="center",
-    ), country_selector, create_plot)
+template.main.append(
+    pn.Column(
+        pn.pane.Markdown(
+            """# Title of Panel App""",
+            align="center",
+        ),
+        create_plot,
 
-# Das Dashboard als bedienbares Objekt bereitstellen
-dashboard.servable()
+    )
+)
+
+template.servable()
+
+
+
