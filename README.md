@@ -6,6 +6,7 @@ Dieses Repository wurde als Lehrmaterial für Kurse im Bereich Data Science und 
 ## Struktur des Repositories
 - `panel_app.py`: Eine einfache Panel-App, die die Erstellung eines Dashboards mit Dropdown-Selektion und Plotly-Diagrammen demonstriert.
 - `voila_app.ipynb`: Ein Jupyter Notebook, das mithilfe von Voilà in eine Web-App verwandelt werden kann. Es beinhaltet interaktive Widgets und Diagramme.
+- `gradio_app.py`: Eine einfache Gradio-App, die basic features vorstellt.
 - `streamlit_app.py`: Eine Streamlit-App, die zeigt, wie man ein interaktives Dashboard mit Streamlit erstellt.
 - `streamlit_exercise_template_1.py`: Ein Streamlit-Übungstemplate, das verschiedene interaktive Widgets enthält.
 - `streamlit_exercise_template_2.py`: Ein weiteres Übungstemplate, das auf die fortgeschrittene Nutzung von Streamlit abzielt.
@@ -58,6 +59,7 @@ Stellen Sie sicher, dass Sie die folgenden Pakete in Ihrer Python-Umgebung insta
 - Streamlit
 - Panel
 - Voilà
+- Gradio
 - Plotly
 - Pandas
 - ipywidgets
@@ -91,6 +93,11 @@ streamlit run streamlit_app.py
 ```bash
 streamlit run streamlit_exercise_template_1.py
 streamlit run streamlit_exercise_template_2.py
+```
+
+**Für Gradio-Apps:**
+```bash
+python gradio_app.py
 ```
 
 ## Zweck der Demos
