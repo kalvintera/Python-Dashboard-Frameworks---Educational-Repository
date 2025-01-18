@@ -13,6 +13,7 @@ voila = "*"
 ipywidgets = "*"
 streamlit = "*"
 extra-streamlit-components = "*"
+gradio = "*"
 
 [dev-packages]
 
