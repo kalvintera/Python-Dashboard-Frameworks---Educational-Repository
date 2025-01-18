@@ -5,12 +5,12 @@ import plotly.express as px
 
 
 # Funktionen, die für das Template benötigt werden
-def generate_data(n_rows=100):
+def generate_data(n_rows: int = 100):
     return pd.DataFrame(np.random.rand(n_rows, 3), columns=['a', 'b', 'c'])
 
 
-def create_plot(df):
-    return px.scatter(df, x='a', y='b', color='c', size='c')
+def create_plot(data_df: pd.DataFrame):
+    return px.scatter(data_df, x='a', y='b', color='c', size='c')
 
 
 # Seitenleiste mit verschiedenen Eingabemöglichkeiten
